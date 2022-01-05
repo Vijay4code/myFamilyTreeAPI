@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const programmingLanguages = require('../services/password');
+const password = require('../services/password');
 
 /* GET programming languages. */
 router.get('/', async function(req, res, next) {
