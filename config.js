@@ -6,6 +6,7 @@ const config = {
     user: env.DB_USER || 'familytree',
     password: env.DB_PASSWORD || 'Password#01',
     database: env.DB_NAME || 'familytree',
+    port: env.PORT || 3306,
   },
   listPerPage: env.LIST_PER_PAGE || 10,
 };
