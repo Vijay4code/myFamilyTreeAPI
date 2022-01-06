@@ -2,10 +2,10 @@ const env = process.env;
 
 const config = {
   db: { /* don’t expose password or any sensitive info, done only for demo */
-    host :'db4free.net',
-    user:'familytree',
-    password:'Password#01',
-    database:'familytree',
+    host: env.DB_HOST || 'db4free.net',
+    user: env.DB_USER || 'familytree',
+    password: env.DB_PASSWORD || 'Password#01',
+    database: env.DB_NAME || 'familytree',
   },
   listPerPage: env.LIST_PER_PAGE || 10,
 };
