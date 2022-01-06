@@ -5,7 +5,7 @@ const config = {
     host :'db4free.net',
     user:'familytree',
     password:'Password#01',
-    database:'familytree'
+    database:'familytree',
   },
   listPerPage: env.LIST_PER_PAGE || 10,
 };
