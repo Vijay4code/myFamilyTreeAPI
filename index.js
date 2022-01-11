@@ -21,6 +21,8 @@ app.use(function (req, res, next) {
   res.setHeader('Access-Control-Allow-Credentials', true);
 
   // Pass to next layer of middleware
+
+  res.redirect(`https://${req.header('host')}${req.url}`);
   next();
 });
 
