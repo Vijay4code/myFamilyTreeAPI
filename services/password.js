@@ -10,8 +10,25 @@ async function getMultiple(page = 1){
   const meta = {page};
 
   return {
-    data,
-    meta
+    data
+    // data,
+    // meta
+  }
+}
+
+async function getById(id){
+  page = 1;
+  const offset = helper.getOffset(page, config.listPerPage);
+  const rows = await db.query(`SELECT userid, username, password FROM password where userid=?`, 
+  [id]);
+  /* const rows = await db.query(`SELECT userid, username, password FROM password LIMIT ?,?`, [offset, config.listPerPage]); */
+  const data = helper.emptyOrRows(rows);
+  const meta = {page};
+
+  return {
+    data
+    // data,
+    // meta
   }
 }
 
@@ -78,5 +95,6 @@ module.exports = {
   getMultiple,
   create,
   update,
-  remove
+  remove,
+  getById
 }

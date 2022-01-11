@@ -5,7 +5,7 @@ const password = require('../services/password');
 /* GET password. */
 router.get('/', async function(req, res, next) {
   try {
-    res.json(await password.getMultiple(req.query.page));
+    res.json(await password.getById(1));
   } catch (err) {
     console.error(`Error while getting password`, err.message);
     next(err);
