@@ -22,7 +22,9 @@ app.use(function (req, res, next) {
 
   // Pass to next layer of middleware
 
-  res.redirect(`https://${req.header('host')}${req.url}`);
+  if (req.header('x-forwarded-proto') !== 'https')
+  res.redirect(`https://${req.header('host')}${req.url}`)
+  else
   next();
 });
 
