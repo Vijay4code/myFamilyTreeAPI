@@ -4,6 +4,14 @@ const app = express();
 const port = process.env.PORT || 5000;
 const passwordRouter = require('./routes/password');
 
+
+app.use((req, res, next) => {
+  if (req.header('x-forwarded-proto') !== 'https')
+    res.redirect(`https://${req.header('host')}${req.url}`)
+  else
+    next()
+});
+
 // Add headers before the routes are defined
 app.use(function (req, res, next) {
 
@@ -21,10 +29,6 @@ app.use(function (req, res, next) {
   res.setHeader('Access-Control-Allow-Credentials', true);
 
   // Pass to next layer of middleware
-
-  if (req.header('x-forwarded-proto') !== 'https')
-  res.redirect(`https://${req.header('host')}${req.url}`)
-  else
   next();
 });
 
