@@ -15,7 +15,7 @@ router.get('/', async function(req, res, next) {
 /* GET password for username. */
 router.get('/:emailId', async function(req, res, next) {
   try {
-    res.json(await password.getById(emailId));
+    res.json(await password.getById(req.params.emailId));
   } catch (err) {
     console.error(`Error while getting password`, err.message);
     next(err);
