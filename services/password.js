@@ -19,7 +19,7 @@ async function getMultiple(page = 1){
 async function getById(emailid){
   page = 1;
   const offset = helper.getOffset(page, config.listPerPage);
-  const rows = await db.query(`SELECT userid, username, password FROM password where userid=?`, 
+  const rows = await db.query(`SELECT userid, username, password FROM password where username=?`, 
   [emailid]);
   /* const rows = await db.query(`SELECT userid, username, password FROM password LIMIT ?,?`, [offset, config.listPerPage]); */
   const data = helper.emptyOrRows(rows);
